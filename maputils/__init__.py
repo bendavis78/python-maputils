@@ -8,9 +8,10 @@ def distance(p1,p2):
     return math.sqrt((dx**2) + (dy**2))
 
 class Place(object):
-    def __init__(self, map, name, lat, lng, known_x=None, known_y=None):
+    def __init__(self, map, name, lat, lng, known_x=None, known_y=None, data=None):
         self.map = map
         self.name = name
+        self.data = data or {}
         self.lat = lat
         self.lng = lng
         self.known_x = known_x
@@ -54,8 +55,8 @@ class Map(object):
     def set_projection(self, *args, **kwargs):
         self.projection = Proj(*args, **kwargs)
 
-    def add_place(self, *args):
-        self.places.append(Place(self, *args))
+    def add_place(self, *args, **kwargs):
+        self.places.append(Place(self, *args, **kwargs))
     
     def find_scale(self):
         """
