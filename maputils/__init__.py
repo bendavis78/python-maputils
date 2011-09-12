@@ -1,5 +1,4 @@
 from pyproj import Proj
-import numpy
 import math
 
 def distance(p1,p2):
@@ -83,6 +82,7 @@ class Map(object):
                 calculated.append((place, other_place))
                 self.tracked_ratios['%s - %s' % (place.name, other_place.name)] = projected_distance, pixel_distance, ratio
         
+        import numpy
         # do these look fishy?
         self.stddev = numpy.std(ratios)
         if self.stddev > 100: # FIXME: this method doesn't scale up well, since it could deviate more or less based on map scale.
