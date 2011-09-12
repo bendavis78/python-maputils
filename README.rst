@@ -9,7 +9,7 @@ A compliment to pyproj, maputils is used for plotting locations on a fixed map. 
 
 Ther are other ways to get this information, but they involve setting up more complex GIS systems. This library is a quick way to get a "good enough" estimation of screen coordinates for lat/lng coordinates.
 
-This module will help you determine scale and your northing/easting values. You're on your own figuring out what projection your map is (Google is your friend). 
+This module will help you determine scale and your northing/easting values. You'll still need to find the correct Proj4 config string yourself. A good place to start is http://spatialreference.org/. Also, Google is your friend.
 
 In order to find the other figures, you need to know at least two points that you can plot on your map.  For example, in a US map, it's pretty easy to visually find the "four corners" (where colorado, new mexico, arizona, and utah meet) and the bottom tip of Texas (south padre island).  With these two points known, the Map class can figure out the scale and your northing/easting values.
 
