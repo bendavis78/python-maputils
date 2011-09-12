@@ -56,6 +56,12 @@ class Map(object):
 
     def add_place(self, *args, **kwargs):
         self.places.append(Place(self, *args, **kwargs))
+
+    def get_screen_coords(self, lat, lng):
+        mx, my = self.projection(lng, lat)
+        x = int(round(mx/self.scale))
+        y = int(round(my/self.scale))*-1
+        return x,y
     
     def find_scale(self):
         """
